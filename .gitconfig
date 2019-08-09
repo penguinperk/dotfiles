@@ -1,7 +1,8 @@
 [user]
-  name = Jeff Geerling
-  email = geerlingguy@mac.com
+  name = Scott Perkins
+  email = scott.perkins@lrs.com
 [core]
+  editor = code
   editor = vi
   excludesfile = ~/.gitignore
   autocrlf = input
@@ -10,21 +11,23 @@
   diff = auto
   interactive = auto
   status = auto
-[web]
-  browser = google-chrome
-[credential]
-  helper = osxkeychain
-[push]
-  default = simple
 [merge]
-  tool = kdiff3
+  tool = p4merge
+[diff]
+  tool = p4merge
+[mergetool "p4merge"]
+  path = /Applications/p4merge.app/Contents/MacOS/p4merge
+[difftool "p4merge"]
+  path = /Applications/p4merge.app/Contents/MacOS/p4merge
 [difftool]
   prompt = false
+[mergetool]
+  prompt = false
 [alias]
+  elog = log --oneline --decorate --graph
   c = commit
   ca = commit -a
   cm = commit -m
   cam = commit -am
   d = diff
   dc = diff --cached
-  l = log --graph --pretty=format:"%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset" --abbrev-commit
