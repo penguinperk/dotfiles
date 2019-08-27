@@ -45,9 +45,6 @@ alias gl='git log --graph --pretty=format:"%Cred%h%Creset -%C(yellow)%d%Creset %
 # Tell homebrew to not autoupdate every single time I run it (just once a week).
 export HOMEBREW_AUTO_UPDATE_SECS=604800
 
-# Python settings.
-export PYTHONPATH="/usr/local/lib/python2.7/site-packages"
-
 #Powerline settings.
 powerline-daemon -q
 POWERLINE_BASH_CONTINUATION=1
