@@ -24,6 +24,11 @@ then
 fi
 
 # Syntax-highlight code for copying and pasting.
+
+alias python='/usr/local/bin/python3'
+alias pip='/usr/local/bin/pip3'
+alias vim='mvim -v'
+alias vi='mvim -v'
 # Requires highlight (`brew install highlight`).
 
 # Git aliases.
