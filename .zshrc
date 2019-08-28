@@ -103,6 +103,7 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
   alias vim='mvim -v'
   alias vi='mvim -v'
+  alias python='/usr/local/bin/python3'
 #
 #Powerline settings.
 powerline-daemon -q
