@@ -105,8 +105,9 @@ source $ZSH/oh-my-zsh.sh
   alias vi='mvim -v'
   alias python='/usr/local/bin/python3'
 #
+# Disabled Perkins Sept 6th 2022
 #Powerline settings.
-powerline-daemon -q
-POWERLINE_BASH_CONTINUATION=1
-POWERLINE_BASH_SELECT=1
-. /usr/local/lib/python3.9/site-packages/powerline/bindings/zsh/powerline.zsh
+#powerline-daemon -q
+#POWERLINE_BASH_CONTINUATION=1
+#POWERLINE_BASH_SELECT=1
+#. /usr/local/lib/python3.9/site-packages/powerline/bindings/zsh/powerline.zsh
