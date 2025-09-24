@@ -8,6 +8,13 @@
 #
 #
 #
+
+# Number of history entries stored in memory
+HISTSIZE=10000
+
+# Number of history entries stored in the history file
+SAVEHIST=10000
+
 #
 #Set VI mode
 set -o vi
@@ -25,13 +32,17 @@ eval "$(starship init zsh)"
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-  alias vim='mvim -v'
-  alias vi='mvim -v'
-  alias k='kubectl'
-  alias kn='kubectl config set-context --current --namespace'
-  alias kgp='kubectl get pods'
-  alias kl='kubectl logs'
-  
+
+
+##
+# alias vim='mvim -v'
+#  alias vi='mvim -v'
+#  alias k='kubectl'
+#  alias kn='kubectl config set-context --current --namespace'
+#  alias kgp='kubectl get pods'
+#  alias kl='kubectl logs'
+
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh" || true
 
+export PATH="/opt/homebrew/opt/ssh-copy-id/bin:$PATH"
