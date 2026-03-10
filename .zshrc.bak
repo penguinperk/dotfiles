@@ -5,8 +5,6 @@
 # @author Scott Perkins
 #
 
-unset FUNCNEST
-
 # --- Enable vi mode ---
 set -o vi
 
@@ -21,8 +19,8 @@ bindkey -M vicmd '?' history-incremental-search-forward
 
 # History configuration
 HISTFILE=~/.zsh_history
-HISTSIZE=50000
-SAVEHIST=50000
+HISTSIZE=10000
+SAVEHIST=10000
 setopt SHARE_HISTORY
 setopt HIST_IGNORE_ALL_DUPS
 setopt INC_APPEND_HISTORY
@@ -42,6 +40,7 @@ eval "$(starship init zsh)"
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
+export FUNNEST=750
 
 
 # fzf keybind for interactive history search
@@ -52,13 +51,13 @@ export LC_ALL=en_US.UTF-8
 #fzf-tab
 autoload -Uz compinit
 compinit
-[ -f ~/.config/dotfiles/.fzf.zsh ] && source ~/.config/dotfiles/.fzf.zsh
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 # fzf-tab
-source /opt/homebrew/opt/fzf-tab/share/fzf-tab/fzf-tab.zsh
+source $(brew --prefix)/opt/fzf-tab/
 ##########
 
 
-
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh" || true
 
 #================================#
 # Force emacs-style bindings (Ghostty expects this)

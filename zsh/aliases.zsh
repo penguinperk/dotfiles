@@ -1,12 +1,21 @@
 # Alias
 # ---
 #
+#Core
+alias cat='bat --paging=never --style=plain --color=always'
 #
 alias visource='vi ~/.zshrc'
 alias vialias='vi ~/.config/dotfiles/zsh/aliases.zsh'
 alias sourceme='source ~/.zshrc'
+alias readcheat='md ~/.config/dotfiles/zsh/cheatsheet.md'
+
+#Directories
+alias goco='cd /Users/e3339/Documents/src/copilot'
+
+alias setco='/Users/e3339/Documents/src/copilot/copy-git-files.sh'
 
 #Misc
+alias history='history 1'
 alias vim='nvim'
 alias vi='nvim'
 alias grep='grep --color'
@@ -37,20 +46,27 @@ alias kn='kubectl config set-context --current --namespace'
 alias kgp='kubectl get pods'
 alias kl='kubectl logs'
 
+# Claude
+alias claude='ollama launch claude'
+
 # Copilot
 co-list() {
   echo "Custom Copilot CLI aliases/functions:"
   echo ""
   echo "1️⃣  co()       - Quick day-to-day CLI commands (gpt-5-mini)"
-  echo "2️⃣  ico()      - Interactive / quick DevOps prompts (gpt-4.1-mini, --allow-all)"
+  echo "2️⃣  coi()      - Interactive / quick DevOps prompts (gpt-4.1-mini, --allow-all)"
   echo "3️⃣  co-code()  - Code-heavy tasks / Terraform / YAML (gpt-5.1-codex)"
   echo "4️⃣  co-heavy() - Deep architecture, SOC design, or large-scale reasoning (gpt-5)"
 }
 
-co() { copilot --model gpt-5-mini -p "$@"; }
-ico() { copilot --model gpt-4.1-mini --allow-all "$@"; }
-co-code() { copilot --model gpt-5.1-codex -p "$@"; }
-co-heavy() { copilot --model gpt-5 -p "$@"; }
+co() { copilot -p "$@"; }
+coi() { copilot --allow-all "$@"; }
+co-code() { copilot -p "$@"; }
+co-heavy() { copilot -p "$@"; }
+#co() { copilot --model gpt-5-mini -p "$@"; }
+#coi() { copilot --model gpt-5.2-codex --allow-all "$@"; }
+#co-code() { copilot --model gpt-5.1-codex -p "$@"; }
+#co-heavy() { copilot --model gpt-5 -p "$@"; }
 
 
 
@@ -130,3 +146,13 @@ function azip_private() {
     az network nic list --query "[?ipConfigurations[?privateIpAddress=='$1']]" --output table
 }
 
+get-cheat() {
+    echo "# Auto-generated Cheatsheet"
+    grep -E "^#|^alias|^\w+\(\)" ~/.config/dotfiles/zsh/aliases.zsh | \
+    sed 's/alias //' | sed 's/=.*//' | \
+    awk '/^#/{comment=$0; next} /^[^#]/{print $1 " - " comment}' | \
+    sed 's/# //'
+}
+
+# Cheatsheet
+alias cheat="/Users/e3339/.config/dotfiles/zsh/generate-cheatsheet.zsh && md ~/.config/dotfiles/zsh/cheatsheet.md"
